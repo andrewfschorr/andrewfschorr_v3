@@ -1,0 +1,51 @@
+
+html, body {
+  width:100%;
+  height:100%;
+  background: black;
+  font-family: 'roboto_slabbold';
+}
+
+#___gatsby, #___gatsby > div {
+  height: 100%;
+}
+
+#main {
+  display:block;
+  width: 100%;
+  height: 100%;
+
+}
+
+.heading {
+  position: absolute;
+  font-size: 33px;
+  top: 20px;
+  left: 20px;
+  background: #ee4957;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 8px;
+  margin: 0;
+  line-height: 33px;
+}
+
+.social {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.social a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.social svg {
+  width: 20px;
+}
+
+.social svg:first-child {
+  margin-right: 10px;
+}
