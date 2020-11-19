@@ -1,11 +1,17 @@
-import React from 'react';
-import Canvas from "../components/canvas";
+import React from "react";
 // https://github.com/gatsbyjs/gatsby-starter-blog/blob/master/src/pages/index.js
 
+const ClientSideLazyCanvas = React.lazy(() =>import('../components/canvas'));
+
 const Index = () => {
+  const isClient = !(typeof window === "undefined");
   return (
     <>
-      <Canvas />
+      {isClient && (
+        <React.Suspense fallback={<div />}>
+          <ClientSideLazyCanvas />
+        </React.Suspense>
+      )}
       <h1 className="heading">Andrew F Schorr</h1>
       <SocialTings />
     </>

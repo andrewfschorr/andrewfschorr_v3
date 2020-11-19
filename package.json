@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "andrewfschorr-personal-site",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "foo bar",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Andrew F Schorr <afs35mm@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/andrewfschorr/andrewfschorr_v2"
   },
   "dependencies": {
     "gatsby": "^2.26.1",
@@ -33,16 +33,6 @@
   },
   "devDependencies": {
     "prettier": "2.1.2"
-  },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
