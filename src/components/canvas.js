@@ -1,13 +1,9 @@
 import React, { useRef, useEffect } from "react";
 
 const LINES = 12;
-const LENGTH = window.innerWidth / (LINES + 1);
-const VERTICAL_LINES = Math.floor(window.innerHeight / LENGTH);
-const TOTAL_POINTS = LENGTH * VERTICAL_LINES;
-const DEGREES = (TOTAL_POINTS / 720); // i have no idea why this is 720, just looks cooler
 const SECONDS_PER_ROTATION = 12;
 const FPS = 60; // have to just assume 60 fsp
-const UNIT_PER_FRAME = (360 / FPS) / SECONDS_PER_ROTATION;
+const UNIT_PER_FRAME = 360 / FPS / SECONDS_PER_ROTATION;
 const LENGTH_OFFSET = 0;
 const STROKE = 4;
 let j = 0;
@@ -21,20 +17,19 @@ function drawLine(ctx, y, x, length, degree) {
   ctx.beginPath();
   ctx.translate(x, y);
   // https://stackoverflow.com/questions/17125632/html5-canvas-rotate-object-without-moving-coordinates
-  ctx.rotate(degree * Math.PI/180);
+  ctx.rotate((degree * Math.PI) / 180);
   ctx.rect(-(STROKE / 2), -(length / 2), STROKE, length - LENGTH_OFFSET);
   ctx.fillStyle = rgb(40, 40, 40);
   ctx.fill();
   ctx.restore();
 }
 
-// function init() {
-//   ctx.canvas.width  = window.innerWidth;
-//   ctx.canvas.height = window.innerHeight;
-//   window.requestAnimationFrame(draw);
-// }
-
 function draw(ctx) {
+  const LENGTH = window.innerWidth / (LINES + 1);
+  const VERTICAL_LINES = Math.floor(window.innerHeight / LENGTH);
+  const TOTAL_POINTS = LENGTH * VERTICAL_LINES;
+  const DEGREES = TOTAL_POINTS / 720; // i have no idea why this is 720, just looks cooler
+
   j += UNIT_PER_FRAME;
 
   let i = 0;
@@ -58,9 +53,13 @@ const Canvas = () => {
     const canvas = ref.current;
     const ctx = canvas.getContext("2d");
     ctx.lineWidth = 2;
-    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.width = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
     window.requestAnimationFrame(() => draw(ctx));
+    window.addEventListener('resize', () => {
+      ctx.canvas.width = window.innerWidth;
+      ctx.canvas.height = window.innerHeight;
+    });
   }, []);
 
   return <canvas ref={ref} id="main" />;
