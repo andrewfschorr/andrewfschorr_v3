@@ -1,7 +1,7 @@
 import React from "react";
 // https://github.com/gatsbyjs/gatsby-starter-blog/blob/master/src/pages/index.js
 
-const ClientSideLazyCanvas = React.lazy(() =>import('../components/canvas'));
+const ClientSideLazyCanvas = React.lazy(() => import("../components/canvas"));
 
 const Index = () => {
   const isClient = !(typeof window === "undefined");
@@ -26,7 +26,7 @@ const SocialTings = () => {
       <a
         rel="noreferrer"
         target="_blank"
-        href="https://www.instagram.com/andrewfschorr/"
+        href="https://www.linkedin.com/in/andrewfschorr/"
       >
         <svg
           width="20"
